@@ -1,6 +1,6 @@
 class LinearFunction:
     """
-    This class allows the user to do operations with linear functions.
+    This class represents linear functions and allows the user to operate with them.
     It has the attributes a(slope) and (optional) b(y axial intercept).
     """
     def __init__(self):
@@ -28,7 +28,7 @@ class LinearFunction:
         return self.__lin_functions[i]
 
     def add_function(self):
-        self.__lin_functions.append()
+        pass
 
     def new_function(self):
         pass
@@ -48,3 +48,6 @@ class LinearFunction:
     def get_y_with_x(self, x):
         y = self.__a*x+self.__b
         print(f"The y-value is: {y} when the x-value is: {x}")
+
+    def get_point_of_intersection(self):
+        pass

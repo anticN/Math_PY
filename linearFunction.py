@@ -4,9 +4,8 @@ class LinearFunction:
     It has the attributes a(slope) and (optional) b(y axial intercept).
     """
     def __init__(self):
-        self.__a = float(input("Enter value for a: "))
-        self.__b = float(input("Enter value for b: "))
-        self.__lin_functions = []
+        self.__a = float(input("Enter value for a(slope): "))
+        self.__b = float(input("Enter value for b(y axial intercept), if none just type 0: "))
 
     @property
     def a(self):
@@ -24,15 +23,6 @@ class LinearFunction:
     def b(self, b):
         self.__b = b
 
-    def lin_functions(self, i):
-        return self.__lin_functions[i]
-
-    def add_function(self):
-        pass
-
-    def new_function(self):
-        pass
-
     def print(self):
         if self.__b is None or self.__b == 0:
             print(f"Your function is:\n\ty = {self.__a}x")
@@ -49,5 +39,6 @@ class LinearFunction:
         y = self.__a*x+self.__b
         print(f"The y-value is: {y} when the x-value is: {x}")
 
-    def get_point_of_intersection(self):
+    def get_point_of_intersection(self, func2):
         pass
+

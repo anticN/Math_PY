@@ -1,6 +1,7 @@
 import os
 import time
 from linearFunction import LinearFunction
+import WrongDatatypeException
 """
 @author Nikola Antic
 @version 0.1
@@ -15,19 +16,22 @@ if __name__ == '__main__':
 
     print(f"Welcome to the Math-application written by Nikola Antic")
     print_line()
-    time.sleep(1)
+    #time.sleep(1)
     while True:
         print()
         print(f"What do you want to do with the programm?")
         user_choice = input(f"linear functions \033[1;32m(l/L)\033[0m, quadratic functions \033[1;32m(q/Q)\033[0m....")
 
         if user_choice == "l" or user_choice == "L":
-            lin_func = LinearFunction()
-            lin_functions = []
-            lin_functions.append(lin_func)
+            try:
+                lin_func = LinearFunction()
+                lin_functions = []
+                lin_functions.append(lin_func)
+            except WrongDatatypeException as wrongData:
+                print(wrongData)
             print()
             lin_func.print()
-            time.sleep(1)
+            #time.sleep(1)
             print()
             while True:
                 print()

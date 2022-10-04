@@ -4,8 +4,11 @@ class LinearFunction:
     It has the attributes a(slope) and (optional) b(y axial intercept).
     """
     def __init__(self):
-        self.__a = float(input("Enter value for a(slope): "))
-        self.__b = float(input("Enter value for b(y axial intercept), if none just type 0: "))
+        self.__a = (input("Enter value for a(slope): "))
+        self.__b = (input("Enter value for b(y axial intercept), if none just type 0: "))
+
+        if self.__a is not float or self.__b is not float:
+            raise WrongDatatypeException("You have to enter a numeric value: ")
 
     @property
     def a(self):
@@ -32,7 +35,7 @@ class LinearFunction:
     def get_x_when_y_0(self):
         y = 0
         y -= self.__b
-        x = y / self.__a
+        x = y / float(self.__a)
         print(f"The x-coordinate is: {x} when y = 0")
 
     def get_y_with_x(self, x):
@@ -42,3 +45,7 @@ class LinearFunction:
     def get_point_of_intersection(self, func2):
         pass
 
+
+class WrongDatatypeException(Exception):
+    def __init__(self, message):
+        super().__init__(message)

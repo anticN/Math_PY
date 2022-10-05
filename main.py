@@ -8,13 +8,6 @@ from termcolor import colored
 @since 2022-10-02
 """
 
-
-"""
-Please take your time to comment the code Nikola.
-It's not that hard to do and will not only help you,
-but people like me, who read through your code.
-"""
-
 # ! Please define functions at the top!
 def get_point(func1, func2):
     xi = (lin_func.b - lin_func2.b) / (lin_func2.a - lin_func.a)
@@ -35,8 +28,10 @@ if __name__ == '__main__':
         user_choice = input()
 
         if user_choice.lower() == "l":
+            a = input("Enter a > ")
+            b = input("Enter b >")
             try:
-                lin_func = LinearFunction()
+                lin_func = LinearFunction(a, b)
                 lin_functions = []
                 lin_functions.append(lin_func)
             except WrongDatatypeException as wrongData:
@@ -61,7 +56,7 @@ if __name__ == '__main__':
                 elif lin_choice.lower() == "x":
                     lin_func.get_x_when_y_0()
                 elif lin_choice.lower() == "i":
-                    lin_func2 = LinearFunction()
+                    lin_func2 = LinearFunction(a, b)
                     get_point(lin_func, lin_func2)
                 elif lin_choice.lower() == "n":
                     lin_func = LinearFunction()

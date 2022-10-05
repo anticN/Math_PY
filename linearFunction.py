@@ -1,30 +1,22 @@
 class LinearFunction:
     """
     This class represents linear functions and allows the user to operate with them.
-    It has the attributes a(slope) and (optional) b(y axial intercept).
+    It has the attributes a (slope) and (optional) b(y axial intercept).
     """
-    def __init__(self):
-        self.__a = (input("Enter value for a(slope): "))
-        self.__b = (input("Enter value for b(y axial intercept), if none just type 0: "))
-
-        if self.__a is not float or self.__b is not float:
-            raise WrongDatatypeException("You have to enter a numeric value: ")
+    def __init__(self, a, b):
+        try:
+            self.__a = a
+            self.__b = b
+        except WrongDatatypeException:
+            print("Please enter a valid datatype.")
 
     @property
     def a(self):
         return self.__a
 
-    @a.setter
-    def a(self, a):
-        self.__a = a
-
     @property
     def b(self):
         return self.__b
-
-    @b.setter
-    def b(self, b):
-        self.__b = b
 
     def print(self):
         if self.__b is None or self.__b == 0:

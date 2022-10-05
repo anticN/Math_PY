@@ -28,19 +28,19 @@ class LinearFunction:
 
     def print(self):
         if self.__b is None or self.__b == 0:
-            print(f"Your function is:\n\ty = {self.__a}x")
+            print(f"Your function is:\n\ty = {self.__a}x\n")
         else:
-            print(f"Your function is:\n\ty = {self.__a}x + {self.__b}")
+            print(f"Your function is:\n\ty = {self.__a}x + {self.__b}\n")
 
     def get_x_when_y_0(self):
         y = 0
         y -= self.__b
         x = y / float(self.__a)
-        print(f"The x-coordinate is: {x} when y = 0")
+        print(f"The x-coordinate is: {x} when y = 0\n")
 
     def get_y_with_x(self, x):
         y = self.__a*x+self.__b
-        print(f"The y-value is: {y} when the x-value is: {x}")
+        print(f"The y-value is: {y} when the x-value is: {x}\n")
 
     def get_point_of_intersection(self, func2):
         pass

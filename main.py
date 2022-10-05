@@ -1,30 +1,37 @@
 import os
 import time
-from linearFunction import LinearFunction
-import WrongDatatypeException
+from linearFunction import LinearFunction, WrongDatatypeException
+from termcolor import colored
 """
 @author Nikola Antic
 @version 0.1
 @since 2022-10-02
 """
 
+# ! Please define functions at the top!
+def get_point(func1, func2):
+    xi = (lin_func.b - lin_func2.b) / (lin_func2.a - lin_func.a)
+    yi = lin_func.a * xi + lin_func.b
+    print(f"The intersection point of the two functions is: ({xi}|{yi})\n")
+
 if __name__ == '__main__':
     print(f"Hello {os.getlogin()}")
 
-    def print_line():
-        print("=================================================================")
-
     print(f"Welcome to the Math-application written by Nikola Antic")
-    print_line()
-    #time.sleep(1)
+    print("=================================================================")
     while True:
         print()
         print(f"What do you want to do with the programm?")
-        user_choice = input(f"linear functions \033[1;32m(l/L)\033[0m, quadratic functions \033[1;32m(q/Q)\033[0m....")
+        print(f"""
+        1. Create a linear function {colored('(l)', 'green')}
+        2. Create a quadratic function {colored('(q)', 'green')}""")
+        user_choice = input()
 
-        if user_choice == "l" or user_choice == "L":
+        if user_choice.lower() == "l":
+            a = input("Enter a > ")
+            b = input("Enter b >")
             try:
-                lin_func = LinearFunction()
+                lin_func = LinearFunction(a, b)
                 lin_functions = []
                 lin_functions.append(lin_func)
             except WrongDatatypeException as wrongData:
@@ -32,35 +39,29 @@ if __name__ == '__main__':
             print()
             lin_func.print()
             #time.sleep(1)
-            print()
             while True:
                 print()
                 print("What do you want to do with the function?")
-                print_line()
-                lin_choice = input(f"Get the y-value with a x value\033[1;32m(y/Y)\033[0m.\nGet the x-value when y = 0\033[1;32m(x/X)\033[0m.\n"
-                                   f"Add another function and get the point of intersection\033[1;32m(i/I)\033[0m.\n"
-                                   f"Calculate with a new function\033[1;32m(n/N)\033[0m.\n"
-                                   f"Exit the linear functions\033[1;32m(e/E)\033[0m.")
-                if lin_choice == "y" or lin_choice == "Y":
+                print("=================================================================")
+                # For multiline strings use triple quotes and you'd rather print than using the input prompt
+                print(f"""
+                1. Get the y-value with an x-value {colored('(y)', 'green')}
+                2. Get the x-value when y = 0 {colored('(x)', 'green')}
+                3. Get the point of intersection with another function {colored('(i)', 'green')}
+                4. Calculate with a new function {colored('(n)', 'green')}
+                5. Exit {colored('(e)', 'green')}""")
+                lin_choice = input()
+                if lin_choice.lower() == "y":
                     lin_func.get_y_with_x(float(input(f"Type your x-value to get the y-value:")))
-                    print()
-                elif lin_choice == "x" or lin_choice == "X":
+                elif lin_choice.lower() == "x":
                     lin_func.get_x_when_y_0()
-                    print()
-                elif lin_choice == "i" or lin_choice == "I":
-                    lin_func2 = LinearFunction()
-
-                    def get_point(func1, func2):
-                        xi = (lin_func.b - lin_func2.b) / (lin_func2.a - lin_func.a)
-                        yi = lin_func.a * xi + lin_func.b
-                        print(f"The intersection point of the two functions is: ({xi}|{yi})")
-                        print()
-
+                elif lin_choice.lower() == "i":
+                    lin_func2 = LinearFunction(a, b)
                     get_point(lin_func, lin_func2)
-                elif lin_choice == "n" or lin_choice == "N":
+                elif lin_choice.lower() == "n":
                     lin_func = LinearFunction()
                     lin_func.print()
-                elif lin_choice == "e" or lin_choice == "E":
+                elif lin_choice.lower() == "e":
                     break
-        elif user_choice == "q" or user_choice == "Q":
+        elif user_choice.lower() == "q":
             pass

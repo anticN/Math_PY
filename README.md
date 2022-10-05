@@ -1,3 +1,12 @@
 # Math_PY
-This app allows the user to operate with linear functions. There'll be more options, for example with quadratic functions etc. And later maybe even a GUI. Right now 
-the app is working at the console. 
+<hr />
+This app allows the user to operate with linear and quadratic functions.
+
+# Langs
+<hr />
+The program is written in vanilla python, witch it's only two dependencies being os and time, which are built-in.
+
+# Docs
+<hr />
+## How to run
+Using this program is easy. All the instructions are given within the execution of the script.

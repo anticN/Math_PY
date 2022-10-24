@@ -3,12 +3,9 @@ class LinearFunction:
     This class represents linear functions and allows the user to operate with them.
     It has the attributes a(slope) and (optional) b(y axial intercept).
     """
-    def __init__(self):
-        self.__a = (input("Enter value for a(slope): "))
-        self.__b = (input("Enter value for b(y axial intercept), if none just type 0: "))
-
-        if self.__a is not float or self.__b is not float:
-            raise WrongDatatypeException("You have to enter a numeric value: ")
+    def __init__(self, a, b):
+        self.__a = a
+        self.__b = b
 
     @property
     def a(self):
@@ -27,15 +24,24 @@ class LinearFunction:
         self.__b = b
 
     def print(self):
+        """
+        Depending on the values the programm will print other statements.
+        """
         if self.__b is None or self.__b == 0:
-            print(f"Your function is:\n\ty = {self.__a}x")
+            print(f"Your function is:\n\n\ty = {self.__a}x")
+        if self.__b < 0:
+            print(f"Your function is: \n\n\ty = {self.__a}x - {self.__b/-1}")
+        elif self.__a < 0:
+            print(f"Your function is: \n\n\ty = -{self.__a / -1}x + {self.__b}")
+        elif self.__a < 0 and self.__b < 0:
+            print(f"Your function is: \n\n\ty = -{self.__a / -1}x - {self.__b / -1}")
         else:
-            print(f"Your function is:\n\ty = {self.__a}x + {self.__b}")
+            print(f"Your function is:\n\n\ty = {self.__a}x + {self.__b}")
 
     def get_x_when_y_0(self):
         y = 0
         y -= self.__b
-        x = y / float(self.__a)
+        x = y / self.__a
         print(f"The x-coordinate is: {x} when y = 0")
 
     def get_y_with_x(self, x):
@@ -45,7 +51,3 @@ class LinearFunction:
     def get_point_of_intersection(self, func2):
         pass
 
-
-class WrongDatatypeException(Exception):
-    def __init__(self, message):
-        super().__init__(message)

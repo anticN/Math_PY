@@ -1,3 +1,6 @@
+import math
+
+
 class QuadraticFunction:
     """
     This class describes a quadratic function with the attributes a(slope), b and c (y axial intercept)
@@ -42,7 +45,20 @@ class QuadraticFunction:
             print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.b}x + {self.c} ")
 
     def get_x_when_y_0(self):
-        pass
+        d = self.b * self.b - (4 * self.a * self.c)
+        if d < 0:
+            print(f"This function doesn't have points on the x-axis")
+        else:
+            x1 = (self.b / -1 + math.sqrt(d)) / (2 * self.a)
+            x2 = (self.b / -1 - math.sqrt(d)) / (2 * self.a)
+            print(f"The null-points of this function are at the x-coordinates {x1} and {x2}")
 
-    def get_y_with_x(self):
-        pass
+    def get_y_with_x(self, x):
+        y = float((self.a * x * x) + (self.b * x) + self.c)
+        print(f"\nThe y-value is: {y} when the x-value is: {x}")
+
+    def vertex(self):
+        sx = (self.b / (2 * self.a)) / -1
+        sy = self.c - (self.b * self.b / (4 * self.a))
+        print(f"\nThe vertex is located at ({sx}|{sy})")
+

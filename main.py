@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     def wrong_input():
         print("\033[1;31mPlease enter a valid choice.\033[0m")
-        time.sleep(0.5)
+        #time.sleep(0.5)
 
     print(f"Hello {os.getlogin()}")
     print(f"Welcome to the Math-application written by Nikola Antic")
@@ -45,7 +45,7 @@ if __name__ == '__main__':
             lin_functions.append(lin_func)
             print()
             lin_func.print()
-            #time.sleep(1)
+            time.sleep(1)
             print()
 
             while True:
@@ -65,6 +65,7 @@ if __name__ == '__main__':
                     In this case the user will get the x-value when the y-value is 0
                     """
                     lin_func.get_x_when_y_0()
+                    time.sleep(1.25)
                     print()
                 elif lin_choice == "i" or lin_choice == "I":
                     """
@@ -89,8 +90,9 @@ if __name__ == '__main__':
         elif user_choice == "q" or user_choice == "Q":
             # the user creates a quadratic function and can operate with it.
             quad_func = QuadraticFunction(float(input("Enter value for a(slope): ")), float(input("Enter value for b: "))
-                                          , float(input("Enter value for c(y axial intercept), if none just type 0: ")))
+                                        , float(input("Enter value for c(y axial intercept), if none just type 0: ")))
             quad_func.print()
+            time.sleep(1)
 
             while True:
                 print()
@@ -111,7 +113,10 @@ if __name__ == '__main__':
                 elif quad_choice == "i" or quad_choice == "I":
                     pass
                 elif quad_choice == "n" or quad_choice == "N":
-                    pass
+                    quad_func = QuadraticFunction(float(input("Enter value for a(slope): ")),
+                                            float(input("Enter value for b: "))
+                                        , float(input("Enter value for c(y axial intercept), if none just type 0: ")))
+                    quad_func.print()
                 elif quad_choice == "e" or quad_choice == "E":
                     break
                 else:

@@ -41,6 +41,27 @@ class QuadraticFunction:
             print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.c}")
         elif self.c == 0:
             print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.b}x")
+            #muss prüfen
+        elif self.a < 0 and self.b < 0 and self.c < 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 - {self.b/-1}x - {self.c/-1}")
+        elif self.a < 0 and self.b < 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 - {self.b/-1}x + {self.c}")
+        elif self.a < 0 and self.c < 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 + {self.b}x - {self.c/-1}")
+        elif self.b < 0 and self.c < 0:
+            print(f"Your function is:\n\n\t y = {self.a}x^2 - {self.b/-1}x - {self.c/-1}")
+        elif self.a < 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 + {self.b}x + {self.c}")
+        elif self.b < 0:
+            print(f"Your function is:\n\n\t y = {self.a}x^2 - {self.b/-1}x + {self.c}")
+        elif self.c < 0:
+            print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.b}x - {self.c/-1}")
+        elif self.a < 0 and self.b < 0 and self.c == 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 - {self.b/-1}x")
+        elif self.a < 0 and self.c < 0 and self.b == 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2 - {self.c/-1}")
+        elif self.a < 0 and self.b == 0 and self.c == 0:
+            print(f"Your function is:\n\n\t y = -{self.a/-1}x^2")
         else:
             print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.b}x + {self.c} ")
 

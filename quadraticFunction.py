@@ -1,4 +1,5 @@
 import math
+import time
 
 
 class QuadraticFunction:
@@ -64,6 +65,7 @@ class QuadraticFunction:
             print(f"Your function is:\n\n\t y = -{self.a/-1}x^2")
         else:
             print(f"Your function is:\n\n\t y = {self.a}x^2 + {self.b}x + {self.c} ")
+        time.sleep(1)
 
     def get_x_when_y_0(self):
         d = self.b * self.b - (4 * self.a * self.c)
@@ -72,7 +74,7 @@ class QuadraticFunction:
         else:
             x1 = (self.b / -1 + math.sqrt(d)) / (2 * self.a)
             x2 = (self.b / -1 - math.sqrt(d)) / (2 * self.a)
-            print(f"The null-points of this function are at the x-coordinates {x1} and {x2}")
+            print(f"\nThe null-points of this function are at the x-coordinates {x1} and {x2}")
 
     def get_y_with_x(self, x):
         y = float((self.a * x * x) + (self.b * x) + self.c)

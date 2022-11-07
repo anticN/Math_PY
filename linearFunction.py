@@ -1,3 +1,6 @@
+import time
+
+
 class LinearFunction:
     """
     This class represents linear functions and allows the user to operate with them.
@@ -37,6 +40,7 @@ class LinearFunction:
             print(f"Your function is: \n\n\ty = -{self.__a / -1}x - {self.__b / -1}")
         else:
             print(f"Your function is:\n\n\ty = {self.__a}x + {self.__b}")
+        time.sleep(1)
 
     def get_x_when_y_0(self):
         y = 0

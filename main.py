@@ -9,11 +9,16 @@ from quadraticFunction import QuadraticFunction
 """
 
 if __name__ == '__main__':
+    def create_func_with_2points(p1x, p1y, p2x, p2y):
+        a = (p2y - p1y) / (p2x - p1x)
+        b = p1y - a * p1x
+        return LinearFunction(a, b)
+
     def get_point(func1, func2):
         try:
             xi = (lin_func.b - lin_func2.b) / (lin_func2.a - lin_func.a)
             yi = lin_func.a * xi + lin_func.b
-            print(f"The intersection point of the two functions is: ({xi}|{yi})\n")
+            print(f"\nThe intersection point of the two functions is: ({xi}|{yi})\n")
         except:
             print("\nThese functions don't have a point of intersection. Try another function")
 
@@ -37,6 +42,7 @@ if __name__ == '__main__':
         print()
         print(f"What do you want to do with the programm?")
         user_choice = input(f"linear functions \033[1;32m(l/L)\033[0m, quadratic functions \033[1;32m(q/Q)\033[0m, "
+                            f"create a linear function with 2 points \033[1;32m(p/P)\033[0m, "
                             f"exit the programm \033[1;32m(e/E)\033[0m")
 
         if user_choice == "l" or user_choice == "L":
@@ -161,6 +167,15 @@ if __name__ == '__main__':
                 else:
                     wrong_input()
                     continue
+
+        elif user_choice == "P" or user_choice == "p":
+            p1x = float(input("Enter the x-value of the first point: "))
+            p1y = float(input("Enter the y-value of the first point: "))
+            p2x = float(input("Enter the x-value of the second point: "))
+            p2y = float(input("Enter the y-value of the second point: "))
+            lin_func = create_func_with_2points(p1x, p1y, p2x, p2y)
+            lin_func.print()
+            user_choice == "l", "L"
         elif user_choice == "e" or user_choice == "E":
             print(f"\nGoodbye {os.getlogin()}")
             print("See you the next time :)")

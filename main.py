@@ -2,6 +2,7 @@ import os
 import time
 from linearFunction import LinearFunction
 from quadraticFunction import QuadraticFunction
+from binomialDistribution import BinomialDistribution
 """
 @author Nikola Antic
 @version 0.1
@@ -43,6 +44,7 @@ if __name__ == '__main__':
         print(f"What do you want to do with the programm?")
         user_choice = input(f"linear functions \033[1;32m(l/L)\033[0m, quadratic functions \033[1;32m(q/Q)\033[0m, "
                             f"create a linear function with 2 points \033[1;32m(p/P)\033[0m, "
+                            f"Calculate with a binomial distribution \033[1:32m(b/B)\033[0m, "
                             f"exit the programm \033[1;32m(e/E)\033[0m")
 
         if user_choice == "l" or user_choice == "L":
@@ -176,6 +178,26 @@ if __name__ == '__main__':
             lin_func = create_func_with_2points(p1x, p1y, p2x, p2y)
             lin_func.print()
             user_choice == "l", "L"
+
+        elif user_choice == "b" or user_choice == "B":
+            try:
+                binom_dist = BinomialDistribution(int(input("Enter the value for n (amount)")), float(input("Enter value for p (probability per case)")))
+            except ValueError:
+                wrong_type()
+                continue
+            binom_dist.print()
+
+            while True:
+                binom_choice_num = int(input(f"Enter the number with which you want to calculate P"))
+                if binom_choice_num != "e" or binom_choice_num != "E":
+                    try:
+                        print(binom_dist.get_P(binom_choice_num))
+                    except ValueError:
+                        wrong_type()
+                        continue
+                elif binom_choice_num == "e" or binom_choice_num == "E":
+                    break
+
         elif user_choice == "e" or user_choice == "E":
             print(f"\nGoodbye {os.getlogin()}")
             print("See you the next time :)")
